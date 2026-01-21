@@ -21,9 +21,12 @@ export default function Layout() {
                 },
             }}
         >
-            <Stack.Screen name="index" options={{ title: 'Farmer App' }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="index" options={{ headerShown: false }} />
             <Stack.Screen name="camera" options={{ title: 'Scan Leaf', headerShown: false }} />
             <Stack.Screen name="result" options={{ title: 'Analysis Result', headerLeft: () => null }} />
+            <Stack.Screen name="field-config" options={{ title: 'My Fields', presentation: 'modal' }} />
+            <Stack.Screen name="field-form" options={{ title: 'Field Details', presentation: 'modal' }} />
         </Stack>
     );
 }

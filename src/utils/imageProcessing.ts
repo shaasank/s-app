@@ -1,11 +1,19 @@
 import { decode } from 'jpeg-js';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { Buffer } from 'buffer';
+import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 
 export async function imageToTensor(uri: string): Promise<Float32Array> {
-    // Read the file as base64
-    const base64 = await FileSystem.readAsStringAsync(uri, {
-        encoding: FileSystem.EncodingType.Base64,
+    // Resize the image to 224x224 explicitly
+    const manipResult = await manipulateAsync(
+        uri,
+        [{ resize: { width: 224, height: 224 } }],
+        { format: SaveFormat.JPEG }
+    );
+
+    // Read the resized file as base64
+    const base64 = await FileSystem.readAsStringAsync(manipResult.uri, {
+        encoding: 'base64',
     });
 
     // Decode the JPEG

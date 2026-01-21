@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FarmerApp",
-    "slug": "farmer-app",
+    "name": "SmartFarm AI",
+    "slug": "smartfarm-ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,22 +9,28 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#059669"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.smartfarmai.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#059669"
       },
-      "package": "com.farmerapp.leafanalysis",
+      "package": "com.smartfarmai.app",
+      "versionCode": 1,
       "permissions": [
-        "CAMERA"
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
       ]
     },
     "web": {
@@ -38,7 +44,7 @@
           "cameraPermission": "Allow FarmerApp to access your camera to scan leaves."
         }
       ],
-      "expo-asset"
+      "onnxruntime-react-native"
     ],
     "scheme": "farmer-app"
   }
